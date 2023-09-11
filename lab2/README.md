@@ -33,7 +33,7 @@
 |  10  |     1010     |  11   |     1011     |     1011     |
 |  11  |     1011     |   0   |     0000     |     0000     |
 
-![автомат](/home/kivyfreakt/pictures/typora-trash/image-20230911094404008.png)
+![автомат](../images/image-20230911094404008.png)
 
 
 
@@ -41,7 +41,7 @@
 
 
 
-![минимизация](/home/kivyfreakt/pictures/typora-trash/image-20230911094502429.png)
+![минимизация](../images/image-20230911094502429.png)
 
 
 
@@ -81,19 +81,19 @@ endmodule
 ```
 Результаты анализа затрат оборудования представлены на рисунке
 
-![image-20230911122353689](/home/kivyfreakt/pictures/typora-trash/image-20230911122353689.png)
+![image-20230911122353689](../images/image-20230911122353689.png)
 
 Задержки распространения сигнала (Slow 1200mV 0C Model)
 
-![image-20230911122516799](/home/kivyfreakt/pictures/typora-trash/image-20230911122516799.png)
+![image-20230911122516799](../images/image-20230911122516799.png)
 
 RTL представление 
 
-![image-20230911122428082](/home/kivyfreakt/pictures/typora-trash/image-20230911122428082.png)
+![image-20230911122428082](../images/image-20230911122428082.png)
 
 Результаты моделирования
 
-![image-20230911122710038](/home/kivyfreakt/pictures/typora-trash/image-20230911122710038.png)
+![image-20230911122710038](../images/image-20230911122710038.png)
 
 ### Реализация 2
 
@@ -146,23 +146,23 @@ endmodule
 
 Результаты анализа затрат оборудования представлены на рисунке
 
-![image-20230911122724641](/home/kivyfreakt/pictures/typora-trash/image-20230911122724641.png)
+![image-20230911122724641](../images/image-20230911122724641.png)
 
 Задержки распространения сигнала (Slow 1200mV 0C Model)
 
-![image-20230911122803444](/home/kivyfreakt/pictures/typora-trash/image-20230911122803444.png)
+![image-20230911122803444](../images/image-20230911122803444.png)
 
 RTL представление 
 
-![image-20230911122905625](/home/kivyfreakt/pictures/typora-trash/image-20230911122905625.png)
+![image-20230911122905625](../images/image-20230911122905625.png)
 
 
 
-![image-20230911122937753](/home/kivyfreakt/pictures/typora-trash/image-20230911122937753.png)
+![image-20230911122937753](../images/image-20230911122937753.png)
 
 Результаты моделирования
 
-![image-20230911122715098](/home/kivyfreakt/pictures/typora-trash/image-20230911122715098.png)
+![image-20230911122715098](../images/image-20230911122715098.png)
 
 ## Реализация 3
 
@@ -205,13 +205,13 @@ endmodule
 
 Результаты анализа затрат оборудования представлены на рисунке
 
-![image-20230911123051114](/home/kivyfreakt/pictures/typora-trash/image-20230911123051114.png)
+![image-20230911123051114](../images/image-20230911123051114.png)
 
 
 
 Задержки распространения сигнала (Slow 1200mV 0C Model)
 
-![image-20230911123214806](/home/kivyfreakt/pictures/typora-trash/image-20230911123214806.png)
+![image-20230911123214806](./images/image-20230911123214806.png)
 
 RTL представление 
 
@@ -219,7 +219,7 @@ RTL представление
 
 Результаты моделирования
 
-![image-20230911122715098](/home/kivyfreakt/pictures/typora-trash/image-20230911122715098.png)
+![image-20230911122715098](../images/image-20230911122715098.png)
 
 
 

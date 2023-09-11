@@ -88,19 +88,19 @@ endmodule
 
 Результаты анализа затрат оборудования представлены на рисунке
 
-![](/home/kivyfreakt/.config/Typora/typora-user-images/image-20230911044445886.png)
+![](../images/image-20230911044445886.png)
 
 Задержки распространения сигнала (Slow 1200mV 0C Model)
 
-![image-20230911044536269](/home/kivyfreakt/.config/Typora/typora-user-images/image-20230911044536269.png)
+![image-20230911044536269](../images/image-20230911044536269.png)
 
 RTL представление 
 
-![image-20230911044558723](/home/kivyfreakt/.config/Typora/typora-user-images/image-20230911044558723.png)
+![image-20230911044558723](../images/image-20230911044558723.png)
 
 Результаты моделирования
 
-![Функциональное моделирование](/home/kivyfreakt/.config/Typora/typora-user-images/image-20230911043237620.png)
+![Функциональное моделирование](../images/image-20230911043237620.png)
 
 ## На основе мультиплексора (4:1) и логических элементов по схеме «мультиплексор-функция»
 
@@ -133,19 +133,19 @@ endmodule
 
 Результаты анализа затрат оборудования представлены на рисунке
 
-![image-20230911044922556](/home/kivyfreakt/pictures/typora-trash/image-20230911044922556.png)
+![image-20230911044922556](../images/image-20230911044922556.png)
 
 Задержки распространения сигнала (Slow 1200mV 0C Model)
 
-![image-20230911044957394](/home/kivyfreakt/pictures/typora-trash/image-20230911044957394.png)
+![image-20230911044957394](../images/image-20230911044957394.png)
 
 RTL представление 
 
-![image-20230911045019857](/home/kivyfreakt/pictures/typora-trash/image-20230911045019857.png)
+![image-20230911045019857](../images/image-20230911045019857.png)
 
 Результаты моделирования
 
-![Функциональное моделирование](/home/kivyfreakt/.config/Typora/typora-user-images/image-20230911043237620.png)
+![Функциональное моделирование](../images/image-20230911043237620.png)
 
 ## На основе дешифратора
 
@@ -173,19 +173,19 @@ endmodule
 
 Результаты анализа затрат оборудования представлены на рисунке
 
-![Затраченные ресурсы](/home/kivyfreakt/.config/Typora/typora-user-images/image-20230911041806559.png)
+![Затраченные ресурсы](../images/image-20230911041806559.png)
 
 Задержки распространения сигнала (Slow 1200mV 0C Model)
 
-![Временные задержки](/home/kivyfreakt/.config/Typora/typora-user-images/image-20230911042532826.png)
+![Временные задержки](../images/image-20230911042532826.png)
 
 RTL представление 
 
-![RTL-представление](/home/kivyfreakt/.config/Typora/typora-user-images/image-20230911042017006.png)
+![RTL-представление](../images/image-20230911042017006.png)
 
 Результаты моделирования
 
-![Функциональное моделирование](/home/kivyfreakt/.config/Typora/typora-user-images/image-20230911043237620.png)
+![Функциональное моделирование](../images/image-20230911043237620.png)
 
 
 
