@@ -40,5 +40,5 @@ incremental_db/
 db/
 simulation/
 greybox_tmp/
-_output_files/
+output_files/
 PLLJ_PLLSPE_INFO.txt
