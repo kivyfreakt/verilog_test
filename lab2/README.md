@@ -211,11 +211,11 @@ endmodule
 
 Задержки распространения сигнала (Slow 1200mV 0C Model)
 
-![image-20230911123214806](./images/image-20230911123214806.png)
+![image-20230911123214806](../images/image-20230911123214806.png)
 
 RTL представление 
 
-![image-20230911123139341](/home/kivyfreakt/pictures/typora-trash/image-20230911123139341.png)
+![image-20230911123139341](../images/image-20230911123139341.png)
 
 Результаты моделирования
 
