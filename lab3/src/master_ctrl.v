@@ -24,18 +24,18 @@ assign sclk = clk_en & clk; // output the clock when needed
 always @(posedge clk or posedge rst)
 begin
     if (rst)
-        current_state = Init;
+        current_state <= Init;
     else
-        current_state = next_state;
+        current_state <= next_state;
 end
 
 always @(negedge clk or posedge rst) begin
     if(rst)
-        count = 3'b111;
+        count <= 3'b111;
     else if (current_state == Shift)
-        count = count + 1;
+        count <= count + 1;
     else
-        count = 3'b111;
+        count <= 3'b111;
 end
 
 // FSM next_state states block and output block
@@ -43,32 +43,32 @@ always @(*)
 begin	
     case (current_state)
             Init : begin
-                {shift_en, load, clk_en, ss} = 4'b0001;
-                next_state = Load;
+                {shift_en, load, clk_en, ss} <= 4'b0001;
+                next_state <= Load;
             end
             
             Load : begin
-                {shift_en, load, clk_en, ss} = 4'b0100;			 
-                next_state = Shift;
+                {shift_en, load, clk_en, ss} <= 4'b0100;			 
+                next_state <= Shift;
             end
             
             Shift : begin
-                {shift_en,load,clk_en,ss} = 4'b1010;
+                {shift_en,load,clk_en,ss} <= 4'b1011;
                 
                 if(count == 3'b111)
-                    next_state = Done;
+                    next_state <= Done;
                 else
-                    next_state = current_state;
+                    next_state <= current_state;
             end
             
             Done : begin
-                {shift_en,load,clk_en,ss} = 4'b0001;
-                next_state = Load;
+                {shift_en,load,clk_en,ss} <= 4'b0001;
+                next_state <= Load;
             end
             
             default : begin
-                {shift_en,load,clk_en,ss} = 4'b0001;
-                next_state = Init;
+                {shift_en,load,clk_en,ss} <= 4'b0001;
+                next_state <= Init;
             end
     endcase
 end
