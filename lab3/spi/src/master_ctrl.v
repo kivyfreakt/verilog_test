@@ -16,7 +16,7 @@ localparam [1:0]
         Done = 2'b11;
         
 reg [1:0] current_state, next_state;
-reg [2:0] count;
+reg [3:0] count;
 reg clk_en;
 
 assign sclk = clk_en & clk; // output the clock when needed
@@ -31,11 +31,13 @@ end
 
 always @(negedge clk or posedge rst) begin
     if(rst)
-        count <= 3'b111;
+        count <= 4'b0000;
+    else if (current_state == Load)
+        count <= 4'b0000;
     else if (current_state == Shift)
-        count <= count + 1;
+        count <= count + 1'b1;
     else
-        count <= 3'b111;
+        count <= 4'b0000;
 end
 
 // FSM next_state states block and output block
@@ -53,21 +55,27 @@ begin
             end
             
             Shift : begin
-                {shift_en,load,clk_en,ss} <= 4'b1011;
+                {shift_en, load, ss} <= 3'b100;
                 
-                if(count == 3'b111)
+                if(count == 4'b1000)
+                begin
                     next_state <= Done;
+                    clk_en <= 1'b0;
+                end
                 else
+                begin
+                    clk_en <= 1'b1;
                     next_state <= current_state;
+                end
             end
             
             Done : begin
-                {shift_en,load,clk_en,ss} <= 4'b0001;
+                {shift_en, load, clk_en, ss} <= 4'b0001;
                 next_state <= Load;
             end
             
             default : begin
-                {shift_en,load,clk_en,ss} <= 4'b0001;
+                {shift_en, load, clk_en, ss} <= 4'b0001;
                 next_state <= Init;
             end
     endcase

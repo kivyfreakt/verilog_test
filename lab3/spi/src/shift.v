@@ -11,12 +11,15 @@ module shift(
     begin
         if (rst)
             data = 8'b00000000;
-        else if(load)
-            data = data_in; 
-        else if (shift_en)
-            data = {data[6:0], 1'b0};
         else
-            data = data;
+        begin
+            if(load)
+                data = data_in; 
+            else if (shift_en)
+                data = {data[6:0], 1'b0};
+            else
+                data = data;
+        end
     end
 
 endmodule
