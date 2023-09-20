@@ -1,25 +1,24 @@
-module uart_tx
+module tx
 #
 (
-    parameter DATA_WIDTH = 8,
-    PARITY_BIT = 1,
-    STOP_BITS = 1,
-    BAUD_RATE = 9600
+    parameter DATA_WIDTH = 8
 )
 (
     input wire clk, rst,
     input wire [DATA_WIDTH - 1 : 0] data_in,
-    output wire tx_data, done
+    output wire tx_data
 );
     wire shift_en, load;
     wire tx_clk;
 
-    uart_baud_rate baud(
-        .clk(clk),
-        .tx_clk(tx_clk)
-    );
+    assign tx_clk = clk;
 
-    uart_shift shift(
+    // uart_baud_rate baud(
+    //     .clk(clk),
+    //     .tx_clk(tx_clk)
+    // );
+
+    tx_shift shift(
         .clk(tx_clk), 
         .rst(rst),
         .shift_en(shift_en),
@@ -28,11 +27,10 @@ module uart_tx
         .s_out(tx_data)
     );
 
-    uart_ctrl ctrl(
+    tx_ctrl ctrl(
         .clk(clk),
         .rst(rst),
         .shift_en(shift_en),
-        .done(done),
         .load(load)
     );
 

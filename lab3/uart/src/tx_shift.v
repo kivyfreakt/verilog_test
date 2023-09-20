@@ -1,4 +1,4 @@
-module uart_shift
+module tx_shift
 #
 (
 	parameter DATA_WIDTH = 8
@@ -9,22 +9,22 @@ module uart_shift
     input wire [DATA_WIDTH - 1:0] data_in,
     output wire s_out
 );
-    localparam PACKAGE_WIDTH = 11;
+    localparam PACKAGE_WIDTH = 12;
     reg [PACKAGE_WIDTH - 1:0] data;
 
-    assign s_out = data[DATA_WIDTH - 1];
+    assign s_out = data[PACKAGE_WIDTH - 1];
     
     always @(posedge clk or posedge rst) 
     begin
         if (rst)
-            data = 0;
+            data <= 12'b1111_1111_1111;
         else if(load)
             // start_bit, data, parity, stop_bit(s)
-            data = {1'b0, data_in, data_in%2, 1'b1};
+            data <= {1'b0, data_in, (~^data_in), 1'b1, 1'b1};
         else if (shift_en)
-            data = {data[PACKAGE_WIDTH - 1:0], 1'b0};
+            data <= {data[PACKAGE_WIDTH - 1:0], 1'b0};
         else
-            data = data;
+            data <= data;
     end
 
 endmodule
