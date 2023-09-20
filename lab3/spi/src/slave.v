@@ -15,7 +15,7 @@ module slave
     
     always @(posedge sclk or negedge ss) 
     begin
-        if (!ss & !sclk) begin
+        if (!ss) begin
             count <= 4'b0000;
             data_out <= 8'b00000000;
         end

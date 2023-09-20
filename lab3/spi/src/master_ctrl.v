@@ -55,7 +55,7 @@ begin
             end
             
             Shift : begin
-                {shift_en, load, ss} <= 3'b100;
+                {shift_en, load, ss} <= 3'b101;
                 
                 if(count == 4'b1000)
                 begin
