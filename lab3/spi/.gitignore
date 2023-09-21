@@ -27,6 +27,10 @@
 *example*
 *sopc_*
 *.sdc
+*.wlf
+*.mpf
+*.mti
+transcript
 
 # ignore Quartus II generated folders
 */db/
@@ -36,6 +40,7 @@
 */timing/
 */testbench/
 */*_sim/
+work/
 incremental_db/
 db/
 simulation/
