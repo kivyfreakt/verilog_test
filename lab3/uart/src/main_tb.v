@@ -4,10 +4,11 @@ reg reset, clock;
 reg [7:0] in_data;
 wire [7:0] out_data;
 wire ready;
+wire error;
 
 integer takt;
 
-main m(clock, in_data, reset, out_data, ready);
+main m(clock, in_data, reset, out_data, error, ready);
 
 initial 
 begin 
