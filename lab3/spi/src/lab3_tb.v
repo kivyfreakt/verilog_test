@@ -19,7 +19,7 @@ begin
     #5;
     for (takt = 0; takt < 40; takt = takt + 1)
     begin
-        in_data = 8'b11111111;
+        in_data = 8'b10101101;
         #5 clock = 'b1;
         #10 clock = 'b0;
         #20;
