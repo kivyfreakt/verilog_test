@@ -14,7 +14,7 @@ reg [3:0] wr_pointer, wr_sync_1, wr_sync_2;
 wire [3:0] rd_pointer_g, rd_pointer_sync;
 wire [3:0] wr_pointer_g, wr_pointer_sync;
 
-reg wr_en;
+reg wr_en, rd_en;
 
 // dual-port memory
 mem m(
@@ -24,14 +24,14 @@ mem m(
 	.wraddress(wr_pointer),
 	.wrclock(wr_clk),
 	.wren(wr_en),
+    .rden(rd_en),
 	.q(data_out));
 
 // write logic
 always @(negedge wr_clk or posedge rst) 
 begin
-	if (rst) begin
+	if (rst)
 		wr_pointer <= 0;
-	end
 	else if (wr_full == 1'b0) begin
 		wr_pointer <= wr_pointer + 1'b1;
         wr_en <= 1'b1;
@@ -46,26 +46,27 @@ begin
 end
 
 // read logic
-always @(posedge rd_clk or posedge rst) begin
-	if (rst) begin
+always @(posedge rd_clk or posedge rst) 
+begin
+	if (rst)
 		rd_pointer <= 0;
-	end
 	else if (rd_empty == 1'b0) begin
 		rd_pointer <= rd_pointer + 1'b1;
-	end
+        rd_en <= 1'b1;
+    end
 end
 
 // read pointer synchronizer controled by write clock
-always @(posedge wr_clk) begin
+always @(negedge wr_clk) begin
 	rd_sync_1 <= rd_pointer_g;
 	rd_sync_2 <= rd_sync_1;
 end
 
 
 // full/empty logic
-assign wr_full  = ((wr_pointer[2 : 0] == rd_pointer_sync[2 : 0]) && 
-				(wr_pointer[3] != rd_pointer_sync[3] ));
+//assign wr_full  = ((wr_pointer[2 : 0] == rd_pointer_sync[2 : 0]) && (wr_pointer[3] != rd_pointer_sync[3]);
 
+assign wr_full = (wr_pointer == 4'b1100);
 assign rd_empty = ((wr_pointer_sync == rd_pointer) == 0) ? 1'b1 : 1'b0;
 
 

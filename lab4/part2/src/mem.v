@@ -40,6 +40,7 @@ module mem (
 	data,
 	rdaddress,
 	rdclock,
+	rden,
 	wraddress,
 	wrclock,
 	wren,
@@ -48,6 +49,7 @@ module mem (
 	input	[10:0]  data;
 	input	[3:0]  rdaddress;
 	input	  rdclock;
+	input	  rden;
 	input	[3:0]  wraddress;
 	input	  wrclock;
 	input	  wren;
@@ -55,6 +57,7 @@ module mem (
 `ifndef ALTERA_RESERVED_QIS
 // synopsys translate_off
 `endif
+	tri1	  rden;
 	tri1	  wrclock;
 	tri0	  wren;
 `ifndef ALTERA_RESERVED_QIS
@@ -68,6 +71,7 @@ module mem (
 				.address_a (wraddress),
 				.clock0 (wrclock),
 				.data_a (data),
+				.rden_b (rden),
 				.wren_a (wren),
 				.address_b (rdaddress),
 				.clock1 (rdclock),
@@ -86,7 +90,6 @@ module mem (
 				.eccstatus (),
 				.q_a (),
 				.rden_a (1'b1),
-				.rden_b (1'b1),
 				.wren_b (1'b0));
 	defparam
 		altsyncram_component.address_aclr_b = "NONE",
@@ -102,6 +105,7 @@ module mem (
 		altsyncram_component.outdata_aclr_b = "NONE",
 		altsyncram_component.outdata_reg_b = "CLOCK1",
 		altsyncram_component.power_up_uninitialized = "FALSE",
+		altsyncram_component.rdcontrol_reg_b = "CLOCK1",
 		altsyncram_component.widthad_a = 4,
 		altsyncram_component.widthad_b = 4,
 		altsyncram_component.width_a = 11,
@@ -172,7 +176,7 @@ endmodule
 // Retrieval info: PRIVATE: WRADDR_REG_B NUMERIC "0"
 // Retrieval info: PRIVATE: WRCTRL_ACLR_B NUMERIC "0"
 // Retrieval info: PRIVATE: enable NUMERIC "0"
-// Retrieval info: PRIVATE: rden NUMERIC "0"
+// Retrieval info: PRIVATE: rden NUMERIC "1"
 // Retrieval info: LIBRARY: altera_mf altera_mf.altera_mf_components.all
 // Retrieval info: CONSTANT: ADDRESS_ACLR_B STRING "NONE"
 // Retrieval info: CONSTANT: ADDRESS_REG_B STRING "CLOCK1"
@@ -187,6 +191,7 @@ endmodule
 // Retrieval info: CONSTANT: OUTDATA_ACLR_B STRING "NONE"
 // Retrieval info: CONSTANT: OUTDATA_REG_B STRING "CLOCK1"
 // Retrieval info: CONSTANT: POWER_UP_UNINITIALIZED STRING "FALSE"
+// Retrieval info: CONSTANT: RDCONTROL_REG_B STRING "CLOCK1"
 // Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "4"
 // Retrieval info: CONSTANT: WIDTHAD_B NUMERIC "4"
 // Retrieval info: CONSTANT: WIDTH_A NUMERIC "11"
@@ -196,6 +201,7 @@ endmodule
 // Retrieval info: USED_PORT: q 0 0 11 0 OUTPUT NODEFVAL "q[10..0]"
 // Retrieval info: USED_PORT: rdaddress 0 0 4 0 INPUT NODEFVAL "rdaddress[3..0]"
 // Retrieval info: USED_PORT: rdclock 0 0 0 0 INPUT NODEFVAL "rdclock"
+// Retrieval info: USED_PORT: rden 0 0 0 0 INPUT VCC "rden"
 // Retrieval info: USED_PORT: wraddress 0 0 4 0 INPUT NODEFVAL "wraddress[3..0]"
 // Retrieval info: USED_PORT: wrclock 0 0 0 0 INPUT VCC "wrclock"
 // Retrieval info: USED_PORT: wren 0 0 0 0 INPUT GND "wren"
@@ -204,6 +210,7 @@ endmodule
 // Retrieval info: CONNECT: @clock0 0 0 0 0 wrclock 0 0 0 0
 // Retrieval info: CONNECT: @clock1 0 0 0 0 rdclock 0 0 0 0
 // Retrieval info: CONNECT: @data_a 0 0 11 0 data 0 0 11 0
+// Retrieval info: CONNECT: @rden_b 0 0 0 0 rden 0 0 0 0
 // Retrieval info: CONNECT: @wren_a 0 0 0 0 wren 0 0 0 0
 // Retrieval info: CONNECT: q 0 0 11 0 @q_b 0 0 11 0
 // Retrieval info: GEN_FILE: TYPE_NORMAL mem.v TRUE
