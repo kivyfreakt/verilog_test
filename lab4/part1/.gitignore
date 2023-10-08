@@ -1,0 +1,49 @@
+# ignore Quartus II generated files
+*_generation_script*
+*_inst.vhd
+*.bak
+*.cmp
+*.done
+*.eqn
+*.hex
+*.html
+*.jdi
+*.jpg
+# *.mif
+*.pin
+*.pof
+*.ptf.*
+*.qar
+*.qarlog
+*.qws
+*.rpt
+*.smsg
+*.sof
+*.sopc_builder
+*.summary
+*.tcl
+*.txt # Explicitly add any text files used
+*~
+*example*
+*sopc_*
+*.sdc
+*.wlf
+*.mpf
+*.mti
+transcript
+
+# ignore Quartus II generated folders
+*/db/
+*/incremental_db/
+*/simulation/
+*/greybox_tmp/
+*/timing/
+*/testbench/
+*/*_sim/
+work/
+incremental_db/
+db/
+simulation/
+greybox_tmp/
+output_files/
+PLLJ_PLLSPE_INFO.txt
