@@ -1,14 +1,14 @@
 module lab4_1_tb;
 
 reg clk;
-wire [2:0] A;
-wire [2:0] B;
+reg [2:0] A;
+reg [2:0] B;
 wire [6:0] result1;
-// output wire [6:0] result2
+wire [6:0] result2;
 
-integer i;
+integer i, j;
 
-lab4_1(clk, A, B, result1);
+lab4_1 i1(clk, A, B, result1, result2);
 
 initial 
 begin 
